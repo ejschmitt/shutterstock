@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["ejschmitt@gmail.com"]
   gem.description   = %q{A gem for interfacing with the shutterstock API}
   gem.summary       = %q{Shutterstock API gem}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/ejschmitt/shutterstock"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
