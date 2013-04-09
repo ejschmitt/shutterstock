@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Shutterstock::VERSION
   gem.authors       = ["Erick Schmitt"]
   gem.email         = ["ejschmitt@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A gem for interfacing with the shutterstock API}
+  gem.summary       = %q{Shutterstock API gem}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
