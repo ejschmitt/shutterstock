@@ -4,8 +4,10 @@ module Shutterstock
     module Images
       include Shutterstock::API::Util
 
-      def search(searchterm)
-        call('images/search.json', :get, {searchterm: searchterm})
+      BASE_PATH = 'images'
+
+      def search(searchterm, options = {})
+        call([BASE_PATH, 'search'], :get, {searchterm: searchterm}.merge(options))
       end
     end
   end

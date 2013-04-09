@@ -3,9 +3,11 @@ module Shutterstock
     module Util
       include Shutterstock::Configurable
 
+      FORMAT = :json
       ENDPOINT = 'http://api.shutterstock.com'
+
       def call(path, type, params = {})
-        base_url = File.join(ENDPOINT, path)
+        base_url = "#{ File.join(ENDPOINT, path) }.#{ FORMAT }"
 
         uri = URI.parse(base_url)
         uri.query = URI.encode_www_form(params)
