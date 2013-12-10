@@ -1,12 +1,15 @@
 module Shutterstock
   module Configurable
-    attr_writer :username, :password
+    attr_writer :api_username, :api_key, :username, :password, :email
 
     class << self
       def keys
         @keys ||= [
+          :api_username,
+          :api_key,
           :username,
-          :password
+          :password,
+          :email
         ]
       end
     end
@@ -18,8 +21,11 @@ module Shutterstock
 
     def credentials
       {
+        api_username: @api_username,
+        api_key: @api_key,
         username: @username,
-        password: @password
+        password: @password,
+        email: @email
       }
     end
   end

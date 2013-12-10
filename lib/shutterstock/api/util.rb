@@ -13,11 +13,21 @@ module Shutterstock
         uri.query = URI.encode_www_form(params)
 
         http = Net::HTTP.new(uri.host, uri.port)
-        request = Net::HTTP::Get.new(uri.request_uri)
-        request.basic_auth(credentials[:username], credentials[:password])
+        case type
+        when :get
+          request = Net::HTTP::Get.new(uri.request_uri)
+        when :post
+          request = Net::HTTP::Post.new(uri.request_uri)
+        end
+        request.basic_auth(credentials[:api_username], credentials[:api_key])
         response = http.request(request)
         JSON.parse(response.body)
       end
+
+      def call_with_auth_token(path, type, params = {})
+        call(path, type, {auth_token: customer["auth_token"]}.merge(params))
+      end
+
     end
   end
 end
