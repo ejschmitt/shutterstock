@@ -24,16 +24,43 @@ config/initializers/shutterstock.rb
 
 ```ruby
 Shutterstock.configure do |config|
+  config.api_username = 'xxx'
+  config.api_key = 'xxx'
   config.username = 'xxx'
   config.password = 'xxx'
+  config.email = 'xxx@yyy.zzz'
 end
 ```
 
-Currently this gem only supports searching for images. Usage:
+Currently this gem only supports searching for images and
+downloading/purchasing images.
+
+Search usage:
 
 ```ruby
 client = Shutterstock::Client.new
 trees = client.search('tree')
+```
+
+Download/purchase usage:
+
+```ruby
+client = Shutterstock::Client.new
+trees = client.subscriptions(subscription_id, image_id, size, format)
+```
+
+For size, you can use `Shutterstock::API::Subscriptions::SIZE.small`
+(`medium`, `large`, and `vector` are other options)
+
+For format, you can use `Shutterstock::API::Subscriptions::FORMAT.jpg`
+(`eps` is the other option)
+
+If there are additional query parameters you'd like to send to the API,
+send an optional hash paramater to the methods. For example:
+
+```ruby
+options = {search_group: "photos"}
+trees = client.search('tree', options)
 ```
 
 ## Contributing
