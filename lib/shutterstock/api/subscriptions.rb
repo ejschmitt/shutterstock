@@ -1,4 +1,6 @@
 require 'shutterstock/api/util'
+require 'ostruct'
+
 module Shutterstock
   module API
     module Subscriptions
