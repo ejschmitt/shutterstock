@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 module Shutterstock
   module API
     module Util
